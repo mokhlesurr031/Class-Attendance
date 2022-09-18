@@ -1,2 +1,2 @@
 # Jeffy-s-School
-Student Management Django App
+Class Attendance Management System
