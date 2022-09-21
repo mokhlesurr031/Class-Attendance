@@ -17,7 +17,7 @@ django-debug-toolbar==2.2
 django-google-translate==1.1
 django-js-asset==1.2.2
 django-summernote==0.8.11.6
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 idna==2.9
 isort==4.3.21
 kombu==4.6.8
