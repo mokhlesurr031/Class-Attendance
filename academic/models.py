@@ -58,7 +58,7 @@ class ClassRegistration(models.Model):
     class_name = models.ForeignKey(ClassInfo, on_delete=models.CASCADE, null=True)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, null=True)
     session = models.ForeignKey(Session, on_delete=models.CASCADE, null=True)
-    guide_teacher = models.OneToOneField(GuideTeacher, on_delete=models.CASCADE, null=True)
+    guide_teacher = models.OneToOneField(GuideTeacher, on_delete=models.CASCADE, null=True, blank=True)
     shift = models.ForeignKey(Shift, on_delete=models.CASCADE, null=True)
 
     date = models.DateField(auto_now_add=True)

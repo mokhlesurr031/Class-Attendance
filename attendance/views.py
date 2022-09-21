@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,6 +8,7 @@ from .forms import SearchEnrolledStudentForm
 from student.models import EnrolledStudent
 from academic.models import ClassRegistration
 from .models import StudentAttendance
+import json
 
 def student_attendance(request):
     forms = SearchEnrolledStudentForm()
@@ -32,3 +34,19 @@ class SetAttendance(APIView):
             return Response({'status': 'Success'}, status=status.HTTP_200_OK)
         except:
             return Response({'status': 'Failed'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+def attendance_report(request, **kwargs):
+    try:
+        body_unicode = request.body.decode('utf-8')
+        date = body_unicode[-10:]
+        attendance = StudentAttendance.objects.filter(date=date)
+        context = {
+            'attendance': attendance
+        }
+        return render(request, 'attendance/attendance-list.html', context)
+
+    except:
+        return render(request, 'attendance/attendance-list.html')
+

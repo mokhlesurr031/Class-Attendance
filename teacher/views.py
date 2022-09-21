@@ -18,6 +18,7 @@ def load_upazilla(request):
     return render(request, 'others/upazilla_dropdown_list_options.html', context)
 
 
+import pdb
 def teacher_registration(request):
     form = forms.PersonalInfoForm()
     address_forms = forms.AddressInfoForm()
@@ -26,6 +27,7 @@ def teacher_registration(request):
     job_form = forms.JobInfoForm()
     experience_form = forms.ExperienceInfoForm()
     if request.method == 'POST':
+        # pdb.set_trace()
         form = forms.PersonalInfoForm(request.POST, request.FILES)
         address_form = forms.AddressInfoForm(request.POST)
         education_form = forms.EducationInfoForm(request.POST)
